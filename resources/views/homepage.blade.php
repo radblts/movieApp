@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> -movieapp name </title>
-    <link rel="stylesheet" href="{{ asset(path: 'resources/css/homepage.css')}}"></link>
+    <title> MovieHopper - Home </title>
+    <link rel="stylesheet" href="{{url(path: 'css/homepage.css')}}"></link>
         
 </head>
 <body>
-<nav class="menu">
-  <ol>
-    <li class="menu-item"><a href="#0">Home</a></li>
-    <li class="menu-item"><a href="#0">About</a></li>
-    <li class="menu-item">
-      <a href="#0">Genres</a>
-      <ol class="sub-menu">
-        <li class="menu-item"><a href="#0">Horror</a></li>
-        <li class="menu-item"><a href="#0">Fantasy</a></li>
-        <li class="menu-item"><a href="#0">For children</a></li>
-        <li class="menu-item"><a href="#0">Action</a></li>
-        <li class="menu-item"><a href="#0">Documentaries</a></li>
-      </ol>
-    </li>
-    <li class="menu-item"><a href="#0">Login</a></li>
-    <li class="menu-item"><a href="#0">Contact</a></li>
-  </ol>
-</nav>
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#contact">Contact</a>
+  <a href="#login">Login</a>
+  <div class="dropdown">
+    <button class="dropbtn">Genres
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+    <a href="#">Action</a>  
+    <a href="#">Fantasy</a>
+      <a href="#">For children</a>
+      <a href="#">Horror</a>
+    </div>
+  </div>
+</div>
 
 
 
-<h1>WELCOME TO MOVIEAPP</h1>
+
+<h1>WELCOME TO MOVIEHOPPER</h1>
 <p></p>
 <h3>Global Top 10</h3> 
+
+
+
+<h3>************ movie caroussel here*************</h3>
+
 
 
 
