@@ -22,6 +22,7 @@
         <li class="menu-item"><a href="#0">Documentaries</a></li>
       </ol>
     </li>
+    <li class="menu-item"><a href="#0">Login</a></li>
     <li class="menu-item"><a href="#0">Contact</a></li>
   </ol>
 </nav>
