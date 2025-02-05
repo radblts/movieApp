@@ -51,7 +51,7 @@
         <div class="footer-col">
           <h4>Legal</h4>
           <ul class="links">
-            <li><a href="#">Customer Agreement</a></li>
+            <li><a href="#">FAQ</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Security</a></li>
           </ul>
