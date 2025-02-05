@@ -1,0 +1,9 @@
+Primary: 1F1F1F
+Secondary: F5F5F5
+Primary Accent: 8806D4
+Primary Accent Dark: 3D0E58
+Secondary Accent: 06C6C3
+Secondary Accent Dark: 047775
+
+
+To link css you have to put the file into the folder movieApp/public/css and use the following line in the html: <link rel="stylesheet" href="{{url('css/example.css')}}">
