@@ -8,6 +8,7 @@
         
 </head>
 <body>
+  
 <div class="navbar">
   <a href="#home">Home</a>
   <a href="#contact">Contact</a>
@@ -35,6 +36,7 @@
 
 
 <h3>************ movie caroussel here*************</h3>
+
 
 <section class="footer">
       <div class="footer-row">
@@ -65,6 +67,7 @@
         </div>
       </div>
     </section>
+    
 
 
 
