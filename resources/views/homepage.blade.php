@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <link rel="stylesheet" href="{{ asset(path: 'resources/css/homepage.css')}}"></link>
-           
+    <title> -movieapp name </title>
+    <link rel="stylesheet" href="{{ asset(path: 'resources/css/homepage.css')}}"></link>
         
 </head>
 <body>
@@ -13,9 +12,6 @@
   <ol>
     <li class="menu-item"><a href="#0">Home</a></li>
     <li class="menu-item"><a href="#0">About</a></li>
-    <li class="menu-item">
-      <a href="#0">Widgets</a>
-    </li>
     <li class="menu-item">
       <a href="#0">Genres</a>
       <ol class="sub-menu">
