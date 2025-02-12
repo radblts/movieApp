@@ -3,13 +3,15 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware("auth")->group(function(){
+    Route::view("/", "welcome")->name("home");
 });
 
-Route::get('/login', [AuthController::class, "Login"]);;
+Route::get('/login', [AuthController::class, "Login"])
+->name("login");
 Route::post("/login", [AuthController::class,"loginPost"])
-->name("login.posts");
-Route::get("/register", [AuthController::class, "register"]);
-Route::post("/login", [AuthController::class,"registerPost"])
+->name("login.post");
+Route::get("/register", [AuthController::class, "register"])
+->name("registration");
+Route::post("/register", [AuthController::class,"registerPost"])
 ->name("register.post");

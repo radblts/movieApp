@@ -2,6 +2,16 @@
 @section("title", "Login")
 @section("content")
 <div class="container d-flex justify-content-center align-items-center vh-100">
+    @if(session()->has("success"))
+        <div class="alert alert-success">
+           {{session()->get("success")}}
+        </div>
+    @endif
+    @if(session()->has("error"))
+        <div class="alert alert-success">
+            {{session()->get("error")}}
+        </div>
+    @endif
         <div class="card p-4 shadow" style="width: 300px;">
             <h4 class="text-center mb-3">Login</h4>
             <form method="POST" action="{{route("login.post")}}">
