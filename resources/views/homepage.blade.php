@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MovieHopper - Home </title>
-    <link rel="stylesheet" href="{{url(path: 'css/homepage.css')}}"></link>
-        
-</head>
-<body>
-  
+@extends("layouts.default")
+@section("title", "Homepage | MovieHopper")
+@section("content")
+<p>This is the Homepage</p>
 <div class="navbar">
   <a href="#home">Home</a>
   <a href="#contact">Contact</a>
@@ -67,11 +60,4 @@
         </div>
       </div>
     </section>
-    
-
-
-
-
-    
-</body>
-</html>
+@endsection
