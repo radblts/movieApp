@@ -27,6 +27,14 @@
                     <li><a class="dropdown-item" href="#">Horror</a></li>
                 </ul>
             </li>
+            <li>
+                @if(Auth::check())
+                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+                @endif
+            </li>
         </ul>
     </div>
 </nav>

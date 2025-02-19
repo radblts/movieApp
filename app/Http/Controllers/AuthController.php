@@ -50,4 +50,14 @@ class AuthController extends Controller
         ->with("error", "Failed to create account");
     }
 
+    public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect(route("login"))->with("success", "Logged out successfully");
+}
+
 }
