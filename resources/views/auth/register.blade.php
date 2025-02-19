@@ -45,6 +45,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>
+            <a href="{{ route('login') }}">Back to Login</a>
         </div>
     </div>
 @endsection

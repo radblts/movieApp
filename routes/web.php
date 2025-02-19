@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware("auth")->group(function(){
-    Route::view("/", "welcome")->name("home");
+    Route::view("/", "homepage")->name("home");
 });
 
 Route::get('/login', [AuthController::class, "Login"])

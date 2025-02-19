@@ -36,6 +36,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
+            <a href="{{ route('registration') }}">No account? Register here!</a>
         </div>
     </div>
 @endsection
