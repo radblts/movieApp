@@ -34,3 +34,24 @@ body {
 ```
 
 Replace `example.css` with the name of your `.css`-file
+
+### Link a Page with Laravel?
+
+1. Make a new route in `movieApp\routes\web.php`
+
+```
+Route::get('/exampleURI', function () {return view('examplePageName');})
+->name('exampleName');
+```
+
+-   The URI is how the page is accessed via URL
+-   The `examplePageName` has to be the name of the `.blade.php`-file
+-   The `exampleName` is being used to call the route
+
+2. Now add the link to the `.blade.php`-file
+
+```
+<a href="{{ route('exampleName') }}">testLink</a>
+```
+
+-   the `exampleName` corresponds to the name we gave it when we defined the route in `movieApp\routes\web.php`
