@@ -1,6 +1,7 @@
 @extends("layouts.default")
 @section("title", "Homepage | MovieHopper")
 @section("content")
+<link rel="stylesheet" href="{{url('css/style.css')}}">
 <link rel="stylesheet" href="{{url('css/homepage.css')}}">
 
 <!-- Navbar -->
