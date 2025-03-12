@@ -9,8 +9,10 @@ Route::middleware("auth")->group(function(){
     Route::view("/", "homepage")->name("home");
 });
 
-Route::get('/movies/upcoming', [MovieController::class, 'getUpcomingMovies']);
-Route::get('/rated-movies', [MovieController::class, 'getRatedMovies']);
+Route::get('/movies/upcoming', [MovieController::class, 'getUpcomingMovies'])
+->name("upcomingMovies");
+Route::get('/rated-movies', [MovieController::class, 'getRatedMovies'])
+->name("ratedMovies");
 
 Route::get('/login', [AuthController::class, "Login"])
 ->name("login");

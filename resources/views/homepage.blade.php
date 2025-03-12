@@ -18,6 +18,7 @@
             <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('upcomingMovies') }}">Upcoming Movies</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Genres</a>
                 <ul class="dropdown-menu">
