@@ -15,19 +15,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('upcomingMovies') }}">Upcoming Movies</a></li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Genres</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Fantasy</a></li>
-                    <li><a class="dropdown-item" href="#">For children</a></li>
-                    <li><a class="dropdown-item" href="#">Horror</a></li>
-                </ul>
-            </li>
             <li>
                 @if(Auth::check())
                 <form action="{{ route('logout') }}" method="POST" class="d-inline">
