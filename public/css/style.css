@@ -1,0 +1,13 @@
+:root {
+    --primary: #1f1f1f;
+    --secondary: #f5f5f5;
+    --primaryAccentLight: #8806d4;
+    --primaryAccentDark: #3d0e58;
+    --secondaryAccentLight: #06c6c3;
+    --secondaryAccentDark: #047775;
+}
+
+body {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
