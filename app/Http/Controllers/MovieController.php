@@ -2,35 +2,44 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http; // Import Laravel's HTTP client
+use Carbon\Carbon; // To handle dates easily
 
 class MovieController extends Controller
 {
+    const API_KEY = "01dac663b51e92329e81731dbbee06c8";
     public function getUpcomingMovies()
     {
-        $client = new Client();
-        $response = $client->request('GET', 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', [
-            'headers' => [
-                'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMWRhYzY2M2I1MWU5MjMyOWU4MTczMWRiYmVlMDZjOCIsIm5iZiI6MTczOTM1NDM5Mi41OTIsInN1YiI6IjY3YWM3MTE4ZTA5ZDZjOTE5MGIwOWVkMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AMkLyfQnPGnFgvWVdsknm2uA8cUrdza_S9yjJpS2wOk',
-                'accept' => 'application/json',
-            ],
+        
+
+        $response = Http::get('https://api.themoviedb.org/3/movie/upcoming', [
+            'language' => 'en-US',
+            'region' => 'US',
+            'api_key' => self::API_KEY,
         ]);
 
-        $movies = json_decode($response->getBody(), true);
+        $movies = $response->json()['results'] ?? [];
 
-        return view('movies.upcoming', ['movies' => $movies['results']]);
-    }
+        $today = Carbon::today();
 
-    public function getRatedMovies()
-    {
-        $client = new Client();
-        $response = $client->request('GET', 'https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies?language=en-US&page=1&sort_by=created_at.asc', [
-            'headers' => [
-                'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMWRhYzY2M2I1MWU5MjMyOWU4MTczMWRiYmVlMDZjOCIsIm5iZiI6MTczOTM1NDM5Mi41OTIsInN1YiI6IjY3YWM3MTE4ZTA5ZDZjOTE5MGIwOWVkMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AMkLyfQnPGnFgvWVdsknm2uA8cUrdza_S9yjJpS2wOk',
-                'accept' => 'application/json',
-            ],
-        ]);
+        $movies = array_filter($movies, function ($movie) use ($today) {
+            return Carbon::parse($movie['release_date'])->isToday() || Carbon::parse($movie['release_date'])->isAfter($today);
+        });
 
-        return $response->getBody();
+        foreach ($movies as &$movie) {
+            $creditsResponse = Http::get("https://api.themoviedb.org/3/movie/{$movie['id']}/credits", [
+                'api_key' => self::API_KEY
+            ]);
+
+            $credits = $creditsResponse->json();
+            $director = collect($credits['crew'] ?? [])->firstWhere('job', 'Director');
+            $movie['director'] = $director['name'] ?? 'Unknown';
+        }
+
+        usort($movies, function ($a, $b) {
+            return strtotime($a['release_date']) - strtotime($b['release_date']);
+        });
+
+        return view('movies.upcoming', ['movies' => $movies]);
     }
 }
