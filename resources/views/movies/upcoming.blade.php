@@ -6,7 +6,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
     <a class="navbar-brand px-3" href="#">
-      <img src="{{ url('imgs/images.png') }}" alt="Logo">
+      <img src="{{ url('imgs/logo.png') }}" alt="Logo">
       MovieHopper
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
