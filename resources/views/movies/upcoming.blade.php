@@ -1,5 +1,5 @@
 @extends("layouts.default")
-@section("title", "Homepage | MovieHopper")
+@section("title", "Upcoming Movies | MovieHopper")
 @section("content")
 <link rel="stylesheet" href="{{url('css/homepage.css')}}">
 
@@ -29,19 +29,20 @@
     </div>
 </nav>
 
-
 <div class="container">
-    
-    <!-- Hero Section -->
-    <div class="text-center mt-4">
-        <h1>WELCOME TO MOVIEHOPPER</h1>
-        <h3 class="mt-3">Global Top 10</h3>
-    </div>
-
-    <!-- Movie Carousel Placeholder -->
-    <div class="text-center my-5">
-        <h3>************ movie carousel here *************</h3>
-    </div>
+    <header class="text-center mt-4">
+        <h1>Upcoming Movies</h1>
+    </header>
+    <main>
+        <ul class="movie-list">
+            @foreach ($movies as $movie)
+                <li class="movie-item">
+                    <h2>{{ $movie['title'] }}</h2>
+                    <p>Release Date: {{ $movie['release_date'] }}</p>
+                </li>
+            @endforeach
+        </ul>
+    </main>
 </div>
 
 <!-- Footer -->
